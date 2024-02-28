@@ -7,7 +7,7 @@ export const DefaultTrigger: React.FC = () => {
   const numberOfView = Array.from(Array(3));
   return (
     <View style={flyoutTriggerStyles.hamburgerMenuWrapper}>
-      {numberOfView.map(index => {
+      {numberOfView.map((value, index) => {
         return (
           <View key={index} style={flyoutTriggerStyles.hamburgerMenuItem} />
         );

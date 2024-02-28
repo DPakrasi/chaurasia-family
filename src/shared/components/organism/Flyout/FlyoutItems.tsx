@@ -17,8 +17,14 @@ export interface FlyoutItemProps extends PropsWithChildren {
 }
 
 export const FlyoutItem: React.FC<FlyoutItemProps> = ({children, onPress}) => {
+  const {setItemPosition} = useContext(FlyoutContext);
+  const handlePress = (event: GestureResponderEvent) => {
+    setItemPosition(undefined);
+    onPress && onPress(event);
+  };
+
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={handlePress}>
       <View style={flyoutItemsStyles.menuItem}>
         <Text>{children}</Text>
       </View>
